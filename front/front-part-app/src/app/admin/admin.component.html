@@ -1,0 +1,34 @@
+<div class="card mt-4">
+    <h4 class="card-header">Admin</h4>
+    <div class="card-body">
+        <p><u>Только врачи и админы видят это</u>.</p>
+        <p class="mb-1">Все юзеры отображаются здесь:
+        </p>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="users">
+            <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+        </ul>
+
+        <ul class="patients">
+            <li *ngFor="let patient of patients">
+              <a routerLink="/detail/{{patient.id}}">
+                <span class="badge">
+                  {{patient.id}}
+                </span> 
+                {{patient.name}}
+              </a>
+          
+              <button class="delete" title="delete patient"></button>
+            </li>
+        </ul>
+          <div>
+            <label>Patient name:
+              <input #patientName />
+            </label>
+            <!-- (click) passes input value to add() and then clears the input -->
+            <button>
+              add
+            </button>
+          </div>
+    </div>
+</div>

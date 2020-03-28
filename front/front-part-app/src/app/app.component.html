@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Начальная страница</a>
+        <a class="nav-item nav-link" routerLink="/admin" *ngIf="isAdmin">Пациенты</a>
+        <a class="nav-item nav-link" (click)="logout()">Выйти</a>
+    </div>
+</nav>
+
+<!-- main app container -->
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+
+<div class="text-center mt-4">
+    <p>
+        <a href="https:.com">Support</a>
+    </p>
+</div>
