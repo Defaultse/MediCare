@@ -1,33 +1,20 @@
-﻿﻿import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
-import { AdminComponent } from './admin/admin.component';
-import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './_helpers';
-import { Role } from './_models';
+
+import { PatientsComponent }      from './patients/patients.component';
+import { PersonalInfoComponent }  from './personal-info/personal-info.component'
+import { PatientDetailsComponent } from './patient-details/patient-details.component'
 
 const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent,
-        canActivate: [AuthGuard]
-    },
-    {
-        path: 'admin',
-        component: AdminComponent,
-        canActivate: [AuthGuard],
-        data: { roles: [Role.Admin] }
-    },
-    {
-        path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'patients', component:AdminComponent
-    },
-
-    // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+  { path: '', redirectTo: '/patients', pathMatch: 'full' },
+  { path: 'patients', component: PatientsComponent },
+  { path: 'personal-info/:id', component: PersonalInfoComponent },
+  { path: 'detail/:id', component: PatientDetailsComponent }
 ];
 
-export const AppRoutingModule = RouterModule.forRoot(routes);
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
