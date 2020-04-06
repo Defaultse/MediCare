@@ -9,13 +9,15 @@ import { HttpClientModule }    from '@angular/common/http';
 import { FormsModule }    from '@angular/forms';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientsComponent,
     PersonalInfoComponent,
-    PatientDetailsComponent
+    PatientDetailsComponent,
+    AddPatientComponent
   ],
   imports: [
     FormsModule,

@@ -1,0 +1,10 @@
+<p>add-patient works!</p>
+
+<div>
+    <label>Patient name:
+      <input #patientName />
+    </label>
+    <button (click)="add(patientName.value); patientName.value=''">
+      add
+    </button>
+  </div>

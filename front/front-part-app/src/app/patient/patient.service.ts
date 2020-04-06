@@ -33,6 +33,13 @@ export class PatientService {
     );
   }
 
+  addPatient (patient: Patient): Observable<Patient> {
+    return this.http.post<Patient>(this.patientsUrl, patient, this.httpOptions).pipe(
+      tap((newPatient: Patient) => this.log(`added hero w/ id=${newPatient.id}`)),
+      catchError(this.handleError<Patient>('addPatient'))
+    );
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
      console.error(error); 
