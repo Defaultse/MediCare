@@ -1,8 +1,24 @@
+.page{
+  background-image:url("C:\Users\User\Desktop\MediCare\images\Medical-Wallpapers-24+-images-WallpaperBoat.jpg");
+  height:40em; background-size:cover; width:auto;
+     background-position:50% 50%;
+}
+
 img {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
-    width: 150px;
+    width: 10em;
   }
-  
+
+.left{
+  float: left
+}
+
+.right{
+  float: right;
+  padding-top: 5em;
+  padding-right: 10em;
+  padding-left: 3em;
+}
   

@@ -1,6 +1,10 @@
-<div *ngIf="doctor">
-    <h2>{{doctor.name | uppercase}} Details</h2>
-    <div><span>id: </span>{{doctor.id}}</div>
-    <div><span>name: </span>{{doctor.name}}</div>
-    <div><span>image: </span><img src={doctor.image}/></div>
+<div class="page" *ngIf="doctor">
+    <div class="left"><img src={{doctor.image}}/></div>
+    <article class="right">
+        <h2>{{doctor.name | uppercase}} INFO</h2>
+        <div><span>id: </span>{{doctor.id}}</div>
+        <div><span>name: </span>{{doctor.name}}</div>
+        <div><span>type of activity: </span>{{doctor.type_of_activity}}</div>
+        <div><span>awards: </span>{{doctor.awards}}</div>
+    </article>
 </div>
