@@ -21,10 +21,13 @@ export class AddPatientComponent implements OnInit {
     .subscribe(patients => this.patients = patients);
   }
 
-  add(name: string): void {
+  add(name: string, status: string, drugs:string, details:string): void {
     name = name.trim();
-    if (!name) { return; }
-    this.patientService.addPatient({ name } as Patient)
+    status = status.trim();
+    drugs = drugs.trim();
+    details = details.trim();
+    if (!name && !status && !drugs && !details) { return; }
+    this.patientService.addPatient({ name, status, drugs, details } as Patient)
       .subscribe(patient => {
         this.patients.push(patient);
       });

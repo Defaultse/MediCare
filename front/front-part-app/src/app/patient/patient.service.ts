@@ -35,8 +35,18 @@ export class PatientService {
 
   addPatient (patient: Patient): Observable<Patient> {
     return this.http.post<Patient>(this.patientsUrl, patient, this.httpOptions).pipe(
-      tap((newPatient: Patient) => this.log(`added hero w/ id=${newPatient.id}`)),
+      tap((newPatient: Patient) => this.log(`added patient w/ id=${newPatient.id}`)),
       catchError(this.handleError<Patient>('addPatient'))
+    );
+  }
+
+  deletePatient (patient: Patient | number): Observable<Patient> {
+    const id = typeof patient === 'number' ? patient : patient.id;
+    const url = `${this.patientsUrl}/${id}`;
+
+    return this.http.delete<Patient>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted patient id=${id}`)),
+      catchError(this.handleError<Patient>('deletePatient'))
     );
   }
 

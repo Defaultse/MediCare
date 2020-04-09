@@ -20,5 +20,9 @@ export class PatientsComponent implements OnInit {
     .subscribe(patients => this.patients = patients);
   }
 
+  delete(patient: Patient): void {
+    this.patients = this.patients.filter(p => p !== patient);
+    this.patientService.deletePatient(patient).subscribe();
+  }
 
 }

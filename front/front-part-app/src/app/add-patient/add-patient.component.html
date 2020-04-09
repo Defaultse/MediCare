@@ -1,10 +1,22 @@
-<p>add-patient works!</p>
-
 <div>
-    <label>Patient name:
-      <input #patientName />
-    </label>
-    <button (click)="add(patientName.value); patientName.value=''">
+         <label>Patient name:
+         <input #patientName />
+         </label>
+
+         <label>Patient status:
+          <input #patientStatus />
+        </label>
+
+        <label>Patient drugs:
+          <input #patientDrugs />
+        </label>
+
+        <label>Patient details:
+          <input #patientDetails />
+        </label>
+
+    <button (click)="add(patientName.value, patientStatus.value, patientDrugs.value, patientDetails.value); 
+    patientName.value=''; patientStatus.value=''; patientDrugs.value=''; patientDetails.value=''">
       add
     </button>
-  </div>
+</div>
