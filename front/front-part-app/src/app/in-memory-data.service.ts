@@ -10,7 +10,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
 
     const doctors = [
-      { id: 11, name: 'Dr House', image: 'C:\Users\User\Desktop\MediCare\images\Dr hause.jpg', type_of_activity: 'Онколог', awards: "Қазақстан Республикасының Денсаулық сақтау ісінің Үздігі"},
+      { id: 11, name: 'Dr House', image: 'https://scontent.fala4-2.fna.fbcdn.net/v/t1.0-1/22788850_1987957774821633_7315756874233524202_n.jpg?_nc_cat=109&_nc_sid=dbb9e7&_nc_ohc=yBzLqqDjc-0AX_Ax954&_nc_ht=scontent.fala4-2.fna&oh=aab0473c7775fb37492a44f1368eba33&oe=5EB529AE', type_of_activity: 'Онколог', awards: "Қазақстан Республикасының Денсаулық сақтау ісінің Үздігі"},
       { id: 12, name: 'Dr Doom', image:'', type_of_activity: 'Хирург', awards: "Қазақстан Республикасының Денсаулық сақтау ісінің Үздігі" },
       { id: 13, name: 'Dr Manhattan', image:'', type_of_activity: 'Окулист', awards: "Қазақстан Республикасының Денсаулық сақтау ісінің Үздігі" },
     ];

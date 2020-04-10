@@ -1,3 +1,4 @@
+<form>
 <div>
          <label>Patient name:
          <input #patientName />
@@ -15,8 +16,11 @@
           <input #patientDetails />
         </label>
 
+        <input type="file" name="file" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple />
+
     <button (click)="add(patientName.value, patientStatus.value, patientDrugs.value, patientDetails.value); 
     patientName.value=''; patientStatus.value=''; patientDrugs.value=''; patientDetails.value=''">
       add
     </button>
 </div>
+</form>
