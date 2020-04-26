@@ -9,25 +9,26 @@ import { PatientService } from '../patient/patient.service';
   styleUrls: ['./add-patient.component.css']
 })
 export class AddPatientComponent implements OnInit {
-  patients: Patient[];
+  patients: Patient[] = [];
   constructor(private patientService: PatientService) { }
 
   ngOnInit(): void {
-    this.getPatients();
+    this.getPatientList();
   }
 
-  getPatients(): void {
-    this.patientService.getPatients()
+  getPatientList(): void {
+    this.patientService.getPatientList()
     .subscribe(patients => this.patients = patients);
   }
 
-  add(name: string, status: string, drugs:string, details:string): void {
+  add(name: string, status: string, drugs:string, details:string, doctor_id: number): void {
     name = name.trim();
     status = status.trim();
     drugs = drugs.trim();
     details = details.trim();
-    if (!name && !status && !drugs && !details) { return; }
-    this.patientService.addPatient({ name, status, drugs, details } as Patient)
+    doctor_id = doctor_id;
+    if (!name && !status && !drugs && !details && !doctor_id) { return; }
+    this.patientService.addPatient({ name, status, drugs, details, doctor_id } as Patient)
       .subscribe(patient => {
         this.patients.push(patient);
       });

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/patients', pathMatch: 'full' },
   { path: 'patients', component: PatientsComponent },
   { path: 'personal-info/:id', component: PersonalInfoComponent },
-  { path: 'detail/:id', component: PatientDetailsComponent },
+  { path: 'patients/:id', component: PatientDetailsComponent },
   { path: 'add-patient', component: AddPatientComponent }
 ];
 

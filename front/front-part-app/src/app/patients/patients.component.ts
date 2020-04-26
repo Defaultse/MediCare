@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Patient } from '../patient/patient';
+import { Patient } from '../models';
 import { PatientService } from '../patient/patient.service'
 
 @Component({
@@ -8,19 +8,19 @@ import { PatientService } from '../patient/patient.service'
   styleUrls: ['./patients.component.css']
 })
 export class PatientsComponent implements OnInit {
-  patients: Patient[]
+  patients: Patient[] = []
   constructor(private patientService: PatientService) { }
 
   ngOnInit(): void {
-    this.getPatients();
+    this.getPatientList();
   }
 
-  getPatients(): void {
-    this.patientService.getPatients()
+  getPatientList(): void {
+    this.patientService.getPatientList()
     .subscribe(patients => this.patients = patients);
   }
 
-  delete(patient: Patient): void {
+  deletePatient(patient: Patient): void {
     this.patients = this.patients.filter(p => p !== patient);
     this.patientService.deletePatient(patient).subscribe();
   }

@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Patient }         from '../patient/patient';
+import { Patient }         from '../models';
 import { PatientService }  from '../patient/patient.service';
 @Component({
   selector: 'app-patient-details',
@@ -10,26 +10,19 @@ import { PatientService }  from '../patient/patient.service';
   styleUrls: ['./patient-details.component.css']
 })
 export class PatientDetailsComponent implements OnInit {
-  @Input() patient: Patient;
+  patient: Patient;
 
-  constructor(
-    private route: ActivatedRoute,
-    private patientService: PatientService,
-    private location: Location
-  ) { }
+  constructor(private patientService: PatientService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getPatient();
   }
 
-  getPatient(): void {
+  getPatient() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.patientService.getPatient(id)
-      .subscribe(patient => this.patient = patient);
-  }
 
-  goBack(): void {
-    this.location.back();
+    this.patientService.getPatient(id).subscribe(patient => this.patient = patient);
   }
+  
 
 }

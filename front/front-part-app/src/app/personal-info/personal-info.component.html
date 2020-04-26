@@ -1,4 +1,9 @@
-<div class="page" *ngIf="doctor">
+<div *ngFor="let doctor of doctors">
+    <a [routerLink]="'/doctor/' + doctor.id">{{ doctor.name }}</a>
+    <!-- <button (click)="deleteCategory(category.id)">Delete</button> -->
+</div>
+
+<!-- <div class="page" *ngIf="doctor">
     <div class="left"><img src='{{doctor.image}}' style="width:50%"/></div>
     <article class="right">
         <h2>{{doctor.name | uppercase}} INFO</h2>
@@ -7,4 +12,4 @@
         <div><span>type of activity: </span>{{doctor.type_of_activity}}</div>
         <div><span>awards: </span>{{doctor.awards}}</div>
     </article>
-</div>
+</div> -->

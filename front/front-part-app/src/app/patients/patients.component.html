@@ -1,13 +1,13 @@
 <form>
-<h2>My Patients</h2>
+  <h2>My Patients</h2>
 
-<ul class="patients">
-  <li *ngFor="let patient of patients">
-    <a routerLink="/detail/{{patient.id}}">
-      <span class="badge">{{patient.id}}</span> {{patient.name}}
-    </a>
-    <button class="delete" title="delete patient" (click)="delete(patient)">x</button>
-  </li>
-</ul>
+  <ul class="patients">
+    <li *ngFor="let patient of patients">
+      <a [routerLink]="'/patients/' + patient.id">
+        <span class="badge">{{ patient.id }}</span>{{patient.name}}
+      </a>
+  <button class="delete" title="delete patient" (click)="deletePatient(patient.id)">x</button>
+    </li>
+  </ul>
 </form>
 
