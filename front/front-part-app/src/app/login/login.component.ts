@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { PatientService} from './patient/patient.service'
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = 'front-part-app';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { PatientService} from '../patient/patient.service'
 
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
   logged = false;
 
   username = '';

@@ -44,6 +44,8 @@ INSTALLED_APPS = [
 
     'corsheaders',
 
+    'django_filters',
+
     'api',
 ]
 
@@ -139,6 +141,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
+    'SEARCH_PARAM': '2'
 }
 
 

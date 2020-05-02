@@ -1,15 +1,56 @@
-<div *ngFor="let doctor of doctors">
-    <a [routerLink]="'/doctor/' + doctor.id">{{ doctor.name }}</a>
-    <!-- <button (click)="deleteCategory(category.id)">Delete</button> -->
+<div class="page">
+<div *ngIf="doctor">
+<div class="wrapper">
+    <div class="left">
+        <img src="C:\Users\User\Desktop\MediCare\images\Dr hause.jpg"
+        alt="user" width="120">
+        <h4>{{doctor.name | uppercase}} </h4>
+         <p>{{doctor.type_of_activity}}</p>
+    </div>
+    <div class="right">
+        <div class="info">
+            <h3>Information</h3>
+            <div class="info_data">
+                 <div class="data">
+                    <h4>Id</h4>
+                    <p>{{doctor.id}}</p>
+                 </div>
+                 <div class="data">
+                  <h4>Email</h4>
+                  <p>doc@gmail.com</p>
+               </div>
+                 <div class="data">
+                   <h4>Phone</h4>
+                    <p>0001-213-998761</p>
+              </div>
+            </div>
+        </div>
+      
+      <div class="projects">
+            <h3>Awards</h3>
+            <div class="projects_data">
+                 <div class="data">
+                    <p>{{doctor.awards}}</p>
+                 </div>
+            </div>
+        </div>
+      
+        <div class="social_media">
+            <ul>
+              <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+              <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          </ul>
+      </div>
+    </div>
+</div>
 </div>
 
-<!-- <div class="page" *ngIf="doctor">
-    <div class="left"><img src='{{doctor.image}}' style="width:50%"/></div>
-    <article class="right">
-        <h2>{{doctor.name | uppercase}} INFO</h2>
-        <div><span>id: </span>{{doctor.id}}</div>
-        <div><span>name: </span>{{doctor.name}}</div>
-        <div><span>type of activity: </span>{{doctor.type_of_activity}}</div>
-        <div><span>awards: </span>{{doctor.awards}}</div>
-    </article>
-</div> -->
+
+
+
+
+
+
+
+</div>

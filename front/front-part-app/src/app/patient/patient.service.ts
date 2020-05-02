@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Patient } from '../models';
+import { Patient, LoginResponse } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class PatientService {
   constructor(private http: HttpClient) {}
 
   getPatientList(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(`${this.BASE_URL}/api/patients/`);
+    return this.http.get<Patient[]>(`${this.BASE_URL}/api/patients/?doctor_id=2`);
   }
 
   getPatient(id): Observable<Patient> {
@@ -44,16 +44,12 @@ export class PatientService {
     return this.http.delete(`${this.BASE_URL}/api/patients/${id}/`);
   }
 
-  // login(username, password): Observable<LoginResponse> {
-  //   return this.http.post<LoginResponse>(`${this.BASE_URL}/api/login/`, {
-  //     username,
-  //     password
-  //   })
-  // }
-  // private patientsUrl = 'api/patients';  // URL to web api
-  // httpOptions = {
-  //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  // };
+  login(username, password): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.BASE_URL}/api/login/`, {
+      username,
+      password
+    })
+  }
   
   // constructor(
   //   private http: HttpClient,

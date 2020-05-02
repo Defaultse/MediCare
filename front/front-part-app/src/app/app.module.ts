@@ -13,12 +13,15 @@ import { AddPatientComponent } from './add-patient/add-patient.component';
 import {AuthInterceptor} from "./auth.interceptor";
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 // import { routing } from './app.routing';
 
+import {CurrencyPipe} from '@angular/common';
 // import { JwtInterceptor } from './_helpers';
 // import { HomeComponent } from './home';
 // import { LoginComponent } from './login';
 
+// import {RequestInterceptor} from './request.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +29,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     PersonalInfoComponent,
     PatientDetailsComponent,
     AddPatientComponent,
-    // LoginComponent
+    LoginComponent,
   ],
   imports: [
     FormsModule,
@@ -34,18 +37,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    // LoginComponent
-    // HttpClientInMemoryWebApiModule.forRoot(
-    //   InMemoryDataService, { dataEncapsulation: false }
-    // )
   ],
-  providers: [
-    // {
-    //    provide: HTTP_INTERCEPTORS,
-    // //   useClass:  JwtInterceptor,
-    // //   multi: true
-    // }
-  ],
+  providers:  [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

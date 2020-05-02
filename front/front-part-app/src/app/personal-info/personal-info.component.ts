@@ -13,9 +13,9 @@ import { Doctor } from "../models";
   styleUrls: ['./personal-info.component.css']
 })
 export class PersonalInfoComponent implements OnInit {
-  doctors: Doctor[] = [];
+  doctor: Doctor;
 
-  constructor(public doctorService: DoctorService) {
+  constructor(public doctorService: DoctorService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -23,10 +23,9 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   getDoctorList() {
-    this.doctorService.getDoctorList()
-      .subscribe(doctors => {
-        this.doctors = doctors
-      });
+    const id = +this.route.snapshot.paramMap.get('id');
+
+    this.doctorService.getDoctor(2).subscribe(doctor => this.doctor = doctor);
   }
 
   // doctor: Doctor;

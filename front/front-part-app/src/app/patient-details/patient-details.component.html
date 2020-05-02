@@ -1,8 +1,47 @@
-<div *ngIf="patient">
-    <h2>{{patient.name | uppercase}} Details</h2>
-    <div><span>Id: </span>{{patient.id}}</div>
-    <div><span>Name: </span>{{patient.name}}</div>
-    <div><span>Status: </span>{{patient.status}}</div>
-    <div><span>Drugs: </span>{{patient.drugs}}</div>
-    <div><span>Details: </span>{{patient.details}}</div>
-</div>
+    <div *ngIf="patient">
+    <div class="wrapper">
+        <div class="left">
+            <h4>{{patient.name | uppercase}} </h4>
+            <h5>Status: {{patient.status}}</h5>
+        </div>
+        <div class="right">
+            <div class="info">
+                <h3>Information</h3>
+                <div class="info_data">
+                     <div class="data">
+                        <h4>Id</h4>
+                        <p>{{patient.id}}</p>
+                     </div>
+                     <div class="data">
+                      <h4>Email</h4>
+                      <p>pat@gmail.com</p>
+                   </div>
+                     <div class="data">
+                       <h4>Phone</h4>
+                        <p>0001-213-998761</p>
+                  </div>
+                </div>
+            </div>
+          
+          <div class="projects">
+                <h3>Course of treatment details:</h3>
+                <div class="projects_data">
+                     <div class="data">
+                        <p>{{patient.drugs}}</p>
+                        <p>{{patient.details}}</p>
+                     </div>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>

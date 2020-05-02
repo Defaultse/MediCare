@@ -9,6 +9,7 @@
 <div class="wrapper" *ngIf="logged">
   <h1 class="header">Categories</h1>
     -->
+    
 
 
 <nav>
@@ -16,13 +17,15 @@
     <li><a routerLink="/personal-info/{{11}}">My Info</a></li>
     <li><a routerLink="/patients">Patients</a></li>
     <li><a routerLink="/add-patient">Add patient</a></li>
+    <li>
+      <button routerLink="/login" (click)="logout()">Logout</button></li>
   </ul>
 </nav>
 
+<!-- <div class="wrapper" *ngIf="logged"> -->
 <article>
   <router-outlet></router-outlet>
 </article>
-
 <!-- </div> -->
 
 <footer>
